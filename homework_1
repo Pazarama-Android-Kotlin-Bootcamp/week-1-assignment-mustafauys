@@ -1,1 +1,10 @@
+fun CodelandUsernameValidation(str: String): String {
+    return if (Regex("""^[a-zA-Z][\w]{2,23}[a-zA-Z0-9]$""").matches(str))
+        "true"
+    else
+        "false"
+}
 
+fun main() {
+    println(CodelandUsernameValidation(readLine()!!))
+}
