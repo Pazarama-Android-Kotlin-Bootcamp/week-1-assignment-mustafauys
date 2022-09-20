@@ -1,0 +1,10 @@
+fun FirstFactorial(num: Int): Int {
+  if (num<=1) {
+     return num;   
+  }
+  return num * FirstFactorial(num-1);
+}
+
+fun main() {
+  println(FirstFactorial(readLine()))
+}
