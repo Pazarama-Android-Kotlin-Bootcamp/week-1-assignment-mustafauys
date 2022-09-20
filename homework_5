@@ -1,0 +1,34 @@
+fun QuestionsMarks(str: String): String {
+  val reg = """.*\?.*\?.*\?.*"""
+  var i = 0
+  val n = str.length
+  var ans = "true"
+  var gotPairs = false
+  var now:Int
+  var other:Int
+  var therest:String
+  while (i<n && ans == "true"){
+    if (str[i].isDigit()){
+      now = str[i].toString().toInt()
+      other = 10-now
+      therest = str.substring(i+1)
+      if (therest.contains(other.toString())){
+        gotPairs = true
+        val regex = (reg+other.toString()).toRegex()
+        if (!regex.containsMatchIn(therest)){
+          ans = "false"
+        }
+      }
+    }
+    i+=1
+  }
+  if (gotPairs==false){
+    ans="false"
+  }  
+  return ans;
+  
+}
+
+fun main() {
+  println(QuestionsMarks(readLine()))
+}
